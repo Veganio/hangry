@@ -3,7 +3,7 @@
 describe Hangry do
   context "jamieoliver.com recipe" do
     before(:all) do
-      @html = File.read("spec/fixtures/historical/jamieoliver.com.html")
+      @html = File.read("spec/fixtures/www.jamieoliver.com.html")
       @parsed = Hangry.parse(@html)
     end
     subject { @parsed }
@@ -13,10 +13,10 @@ describe Hangry do
     end
 
     its(:author) { should == "Jamie Oliver" }
-    its(:canonical_url) { should == nil }
+    its(:canonical_url) { should == "https://www.jamieoliver.com/recipes/pork-recipes/neck-fillet-steak/" }
     its(:cook_time) { should == nil }
     its(:description) { should == "The fine marbling of fat through the pork shoulder makes this pork fillet recipe amazingly juicy" }
-    its(:image_url) { should == 'http://cdn.jamieoliver.com/recipe-database/oldImages/xtra_med/360_1_1438787789.jpg' }
+    its(:image_url) { should == 'https://img.jamieoliver.com/jamieoliver/recipe-database/oldImages/large/360_1_1438787789.jpg?tr=w-800,h-800' }
     its(:ingredients) {
       should == [
         "4 higher-welfare pork neck fillet steaks",
@@ -31,15 +31,15 @@ describe Hangry do
     its(:name) { should == "Neck fillet steak" }
     its(:nutrition) do
       should == {
-        calories: '280 calories',
+        calories: '262 calories',
         cholesterol: nil,
-        fiber: nil,
-        protein: '31.8 g protein',
-        saturated_fat: '5.3 g saturated fat',
-        sodium: nil,
+        fiber: "0.1 g fibre",
+        protein: "33.3 g protein",
+        saturated_fat: "4.0 g saturated fat",
+        sodium: "0.71 g salt",
         sugar: '0.1 g sugar',
-        total_carbohydrates: '0.8 g carbohydrate',
-        total_fat: '16.5 g fat',
+        total_carbohydrates: "1.0 g carbohydrate",
+        total_fat: "13.9 g fat",
         trans_fat: nil,
         unsaturated_fat: nil
       }

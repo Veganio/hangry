@@ -8,14 +8,14 @@ describe Hangry do
     end
     subject { @parsed }
 
-    it "should use the schema.org parser" do
-      expect(Hangry::ParserSelector.new(@html).parser).to be_an_instance_of(Hangry::SchemaOrgRecipeParser)
+    it "should use the ld+json parser" do
+      expect(Hangry::ParserSelector.new(@html).parser).to be_an_instance_of(Hangry::JsonLDParser)
     end
 
     its(:author) { should == "Betty Crocker Kitchens" }
     its(:canonical_url) { should == "https://www.bettycrocker.com/recipes/skillet-chicken-nachos/9bf0c3be-09dd-4b1b-8cf4-a9cfa979b232" }
     its(:cook_time) { should == nil }
-    its(:description) { should == "Looking for a dinner ready in 20 minutes? This recipe's delicious nacho mixture is made in your skillet, then spooned onto tortilla chips and sprinkled with cheese and cilantro before serving." }
+    its(:description) { should == "Looking for a dinner that you can have ready in 20 minutes? We've got it right here: Skillet Chicken Nachos. This recipe's delicious nacho mixture is made in your skillet, then spooned onto tortilla chips and sprinkled with cheese and cilantro before serving. Yum! Chicken skillet nachos are great for a lighter meal or as a party appetizer." }
     its(:image_url) { should == 'https://images-gmi-pmc.edge-generalmills.com/5e36ef32-db65-43b3-ade9-8c32fbe7f1dd.jpg' }
     its(:ingredients) {
       should == [
@@ -44,11 +44,8 @@ describe Hangry do
 
     its(:instructions) {
       instructions = <<-EOS
-1
 In 12-inch nonstick skillet, heat oil over medium-high heat. Cook chicken in oil 3 to 5 minutes, stirring occasionally, until no longer pink in center.
-2
 Stir in taco seasoning mix, tomato sauce, bell pepper, beans, corn and 1 cup of the cheese. Reduce heat to medium; cook 3 to 5 minutes, stirring occasionally, until heated through and cheese is melted.
-3
 Divide tortilla chips between 6 plates. Spoon chicken mixture evenly over chips. Sprinkle with remaining 1 cup cheese and the cilantro.
       EOS
       should == instructions.strip

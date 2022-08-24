@@ -16,7 +16,7 @@ describe Hangry do
     its(:canonical_url) { should == 'https://www.tasteofhome.com/recipes/rhubarb-popover-pie/' }
     its(:cook_time) { should == 20 }
     its(:description) { should == 'This fabulous spring breakfast "pie" is also delicious when pineapple or even fresh strawberries are mixed in with the rhubarb filling. Yum!&mdash;Patricia Kile, Elizabethtown, Pennsylvania.' }
-    its(:image_url) { should == 'https://tmbidigitalassetsazure.blob.core.windows.net/secure/RMS/attachments/37/1200x1200/Rhubarb-Popover-Pie_exps49051_HCA1864839B02_17_3bC_RMS.jpg' }
+    its(:image_url) { should == 'https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Rhubarb-Popover-Pie_exps49051_HCA1864839B02_17_3bC_RMS.jpg' }
     its(:ingredients) {
       should == [
         "1/2 cup all-purpose flour",

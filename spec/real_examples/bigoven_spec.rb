@@ -16,17 +16,32 @@ describe Hangry do
       should == "StevesKitchen"
     end
     its(:canonical_url) { should == "https://www.bigoven.com/recipe/steves-fish-tacos/178920" }
-    its(:cook_time) { should == nil }
-    its(:description) { should == "I had never tried fish tacos until my son, fresh out of boot camp, asked me to make them. I found a basic recipe, then adapted it from there, and now it&#39;s one of my favorite things to eat!" }
-    its(:image_url) { should == 'https://photos.bigoven.com/recipe/hero/steves-fish-tacos-2.jpg' }
+    its(:cook_time) { should == 30 }
+    its(:description) { should == "I had never tried fish tacos until my son, fresh out of boot camp, asked me to make them. I found a basic recipe, then adapted it from there, and now it's one of my favorite things to eat!" }
+    its(:image_url) { should == 'https://bigoven-res.cloudinary.com/image/upload/h_320,w_320,c_fill/steves-fish-tacos-2.jpg' }
     its(:ingredients) {
       should == [
-        "1 package of tortillas small", "0.5 cup sour cream", "0.25 cup salsa favorite", "Salt", "Pepper",
-        "1 pound Cod Flounder or Haddock work too", "1 egg", "2 tablespoons milk", "1 tablespoon Flour",
-        "1 tablespoon corn meal", "2 tablespoons olive oil you could use peanut oil or butter also",
-        "2 limes fresh, you'll use the juice", "1 tablespoon cider vinegar", "1 red onion small; diced",
-        "1 tomato diced", "2 cups red cabbage shredded", "cilantro chopped fine; optional", "Jalapenos optional",
-        "Seasoning mix:", "Ground Cumin", "Ground Coriander", "Hot sauce"
+        "1 package of tortillas small",
+        "0.5 cup sour cream",
+        "0.25 cup salsa favorite",
+        "Salt",
+        "Pepper",
+        "1 pound Cod Flounder or Haddock work too",
+        "1 egg",
+        "2 tablespoons milk",
+        "1 tablespoon Flour",
+        "1 tablespoon corn meal",
+        "2 tablespoons olive oil you could use peanut oil or butter also",
+        "2 limes fresh, you'll use the juice",
+        "1 tablespoon cider vinegar",
+        "1 red onion small; diced",
+        "1 tomato diced",
+        "2 cups red cabbage shredded",
+        "cilantro chopped fine; optional",
+        "Jalapenos optional",
+        "Ground Cumin",
+        "Ground Coriander",
+        "Hot sauce"
       ]
     }
     its(:instructions) do
@@ -46,7 +61,7 @@ Fold over and dig in, with a nice IPA or crisp white wine!
       #should == instructions.strip
       should_not == nil
     end
-    its(:name) { should == "Steve&#39;s Fish Tacos" }
+    its(:name) { should == "Steve's Fish Tacos" }
     its(:nutrition) {
       should == {
         calories: '154 calories',
@@ -63,7 +78,7 @@ Fold over and dig in, with a nice IPA or crisp white wine!
       }
     }
     its(:prep_time) { should == 45 }
-    its(:published_date) { should == nil }
+    its(:published_date) { should == Date.new(2010, 2, 1) }
     its(:total_time) { should == 45 }
     its(:yield) { should == "6" }
   end

@@ -6,17 +6,17 @@ describe Hangry do
     end
     subject { @parsed }
 
-    it "should use a non-standard parser" do
-      expect(Hangry::ParserSelector.new(@html).parser).to be_an_instance_of(Hangry::Parsers::NonStandard::EpicuriousParser)
+    it "should use the ld+json parser" do
+      expect(Hangry::ParserSelector.new(@html).parser).to be_an_instance_of(Hangry::JsonLDParser)
     end
 
     its(:author) { should == "Janet Taylor McCracken" }
-    its(:canonical_url) { should == "https://www.epicurious.com/recipes/food/views/grilled-turkey-burgers-with-cheddar-and-smoky-aioli-354289" }
-    its(:cook_time) { should == 40 }
+    its(:canonical_url) { should == "https://www.bonappetit.com/recipe/grilled-turkey-burgers-with-cheddar-and-smoky-aioli" }
+    its(:cook_time) { should == 0 }
     its(:description) { should == "A simple Moroccan-spiced aioli is mixed in with the ground turkey to keep the burgers moist and give them tons of flavor. Smoked paprika is available in the spice aisle of most supermarkets." }
-    its(:prep_time) { should == 40 }
-    its(:total_time) { should == nil }
-    its(:image_url) { should == "https://assets.epicurious.com/photos/5609a5d96a59cdb91b5ff5c0/master/pass/354289_hires.jpg" }
+    its(:prep_time) { should == nil }
+    its(:total_time) { should == 0 }
+    its(:image_url) { should == "https://assets.epicurious.com/photos/5609a5d96a59cdb91b5ff5c0/2:1/w_2138,h_1069,c_limit/354289_hires.jpg" }
     its(:ingredients) {
       should == [
         '1/2 teaspoon cumin seeds',
@@ -49,7 +49,7 @@ Grill turkey burgers 5 minutes. Turn over; grill until almost cooked through, ab
     end
 
     its(:name) { should == "Grilled Turkey Burgers with Cheddar and Smoky Aioli" }
-    its(:published_date) { should == nil }
+    its(:published_date) { should == Date.new(2009, 7, 2) }
     its(:yield) { should == "Makes 4" }
   end
 end

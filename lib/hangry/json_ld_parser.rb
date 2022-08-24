@@ -51,7 +51,7 @@ module Hangry
     end
 
     def is_a_recipe?(json)
-      json['@type'] == 'Recipe' && contains_required_keys?(json)
+      Array(json['@type']).include?('Recipe') && contains_required_keys?(json)
     end
 
     def contains_required_keys?(json)
@@ -131,7 +131,7 @@ module Hangry
 
     def nutrition_property_value(itemprop)
       nutrition_node = nutrition_node_with_itemprop(itemprop)
-      nutrition_node ? nutrition_node.strip : nil
+      nutrition_node.is_a?(String) ? nutrition_node.strip : nutrition_node
     end
 
     def parse_instructions
